@@ -1,0 +1,34 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+pydantic-settings
+
+langchain
+langchain-openai
+langchain-community
+langgraph
+langsmith
+
+chromadb
+pypdf
+python-docx
+unstructured
+markdown
+
+sqlalchemy
+streamlit
+"""fastapi / uvicorn：后端服务
+python-dotenv：读取 .env 环境变量
+pydantic / pydantic-settings：配置和数据结构校验
+
+langchain：LangChain 核心能力
+langchain-openai：OpenAI 模型接入
+langchain-community：社区组件
+langgraph：Agent 工作流编排
+langsmith：追踪与评估
+
+chromadb：向量数据库
+pypdf / python-docx / unstructured / markdown：文档解析
+sqlalchemy：工单数据库
+streamlit：前端演示页面"""
