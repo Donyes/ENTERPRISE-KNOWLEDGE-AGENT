@@ -5,9 +5,11 @@ from app.schemas import (
     BasicChatResponse,
     RAGChatRequest,
     RAGChatResponse,
+    AdvancedRAGChatRequest,
+    AdvancedRAGChatResponse,
 )
 
-from app.rag.chains import ask_basic_chat, ask_rag
+from app.rag.chains import ask_basic_chat, ask_rag, ask_advanced_rag
 
 
 app = FastAPI(
@@ -50,4 +52,26 @@ def rag_chat(request: RAGChatRequest):
         answer=result["answer"],
         sources=result["sources"],
         retrieved_count=result["retrieved_count"],
+    )
+
+
+@app.post("/chat/rag/advanced", response_model=AdvancedRAGChatResponse)
+def advanced_rag_chat(request: AdvancedRAGChatRequest):
+    result = ask_advanced_rag(
+        question=request.question,
+        fetch_k=request.fetch_k,
+        final_k=request.final_k,
+        max_distance=request.max_distance,
+        use_query_rewrite=request.use_query_rewrite,
+    )
+
+    return AdvancedRAGChatResponse(
+        answer=result["answer"],
+        sources=result["sources"],
+        retrieved_count=result["retrieved_count"],
+        rewritten_query=result["rewritten_query"],
+        answerable=result["answerable"],
+        answerability_reason=result["answerability_reason"],
+        scores=result["scores"],
+        debug_results=result["debug_results"],
     )

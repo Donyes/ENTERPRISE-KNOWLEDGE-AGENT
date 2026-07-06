@@ -1,7 +1,7 @@
 import json
 import shutil
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -135,6 +135,26 @@ def search_similar_documents(
     vectorstore = load_vectorstore()
 
     results = vectorstore.similarity_search(
+        query=query,
+        k=k,
+    )
+
+    return results
+
+
+def search_similar_documents_with_scores(
+    query: str,
+    k: int = 8,
+) -> List[Tuple[Document, float]]:
+    """
+    Search similar documents and return documents with similarity scores.
+
+    For Chroma, the returned score is usually a distance value.
+    Lower distance often means more similar.
+    """
+    vectorstore = load_vectorstore()
+
+    results = vectorstore.similarity_search_with_score(
         query=query,
         k=k,
     )

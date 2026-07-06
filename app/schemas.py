@@ -33,3 +33,43 @@ class RAGChatResponse(BaseModel):
     answer: str
     sources: List[Dict[str, Any]]
     retrieved_count: int
+
+
+class AdvancedRAGChatRequest(BaseModel):
+    question: str = Field(
+        ...,
+        min_length=1,
+        description="User question for advanced RAG",
+        examples=["报销出差的钱要交什么东西？"],
+    )
+    fetch_k: int = Field(
+        default=8,
+        ge=1,
+        le=30,
+        description="Number of chunks to retrieve before filtering",
+    )
+    final_k: int = Field(
+        default=4,
+        ge=1,
+        le=10,
+        description="Number of chunks to pass to the answer model",
+    )
+    max_distance: float | None = Field(
+        default=None,
+        description="Optional max distance threshold for filtering Chroma results",
+    )
+    use_query_rewrite: bool = Field(
+        default=True,
+        description="Whether to rewrite the query before retrieval",
+    )
+
+
+class AdvancedRAGChatResponse(BaseModel):
+    answer: str
+    sources: List[Dict[str, Any]]
+    retrieved_count: int
+    rewritten_query: str
+    answerable: bool
+    answerability_reason: str
+    scores: List[float]
+    debug_results: List[Dict[str, Any]]
