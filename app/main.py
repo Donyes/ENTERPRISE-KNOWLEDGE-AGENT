@@ -1,7 +1,13 @@
 from fastapi import FastAPI
 from app.config import settings
-from app.schemas import BasicChatRequest, BasicChatResponse
-from app.rag.chains import ask_basic_chat
+from app.schemas import (
+    BasicChatRequest,
+    BasicChatResponse,
+    RAGChatRequest,
+    RAGChatResponse,
+)
+
+from app.rag.chains import ask_basic_chat, ask_rag
 
 
 app = FastAPI(
@@ -31,3 +37,17 @@ def basic_chat(request: BasicChatRequest):
     answer = ask_basic_chat(request.question)
 
     return BasicChatResponse(answer=answer)
+
+
+@app.post("/chat/rag", response_model=RAGChatResponse)
+def rag_chat(request: RAGChatRequest):
+    result = ask_rag(
+        question=request.question,
+        k=request.k,
+    )
+
+    return RAGChatResponse(
+        answer=result["answer"],
+        sources=result["sources"],
+        retrieved_count=result["retrieved_count"],
+    )
