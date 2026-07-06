@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     chroma_persist_directory: str = "data/vectorstore/chroma"
     chroma_collection_name: str = "enterprise_knowledge_base"
     
+    ticket_database_url: str = "sqlite:///data/tickets.db"    
+
+
     # LangSmith
     langsmith_tracing: bool = False
     langsmith_api_key: str | None = None

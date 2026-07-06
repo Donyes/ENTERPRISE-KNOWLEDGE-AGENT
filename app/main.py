@@ -11,12 +11,17 @@ from app.schemas import (
 
 from app.rag.chains import ask_basic_chat, ask_rag, ask_advanced_rag
 
+from app.tickets.database import create_tables
+from app.tickets.router import router as tickets_router
 
 app = FastAPI(
     title=settings.app_name,
     version="0.1.0",
 )
 
+
+create_tables()
+app.include_router(tickets_router)
 
 @app.get("/")
 def root():
