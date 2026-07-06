@@ -7,6 +7,7 @@ pydantic-settings
 langchain
 langchain-openai
 langchain-community
+langchain-chroma
 langgraph
 langsmith
 langchain-text-splitters
