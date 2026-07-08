@@ -13,6 +13,8 @@ from app.rag.chains import ask_basic_chat, ask_rag, ask_advanced_rag
 
 from app.tickets.database import create_tables
 from app.tickets.router import router as tickets_router
+from app.agent.router import router as agent_router
+
 
 app = FastAPI(
     title=settings.app_name,
@@ -22,6 +24,7 @@ app = FastAPI(
 
 create_tables()
 app.include_router(tickets_router)
+app.include_router(agent_router)
 
 @app.get("/")
 def root():
