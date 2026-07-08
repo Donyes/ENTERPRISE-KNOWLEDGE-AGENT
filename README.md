@@ -55,8 +55,8 @@ Open:
 
 [127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-
 ---
+
 # 0.11 初始化 Git
 
 执行：
@@ -72,3 +72,34 @@ git config --global user.name "your-name"
 git config --global user.email "your-email@example.com"
 
 然后重新 commit。
+```
+
+
+## Evaluation
+
+This project includes a small business-oriented evaluation dataset for RAG and workflow testing.
+
+### Metrics
+
+- Source hit: whether the retrieved sources include the expected document.
+- Keyword recall: whether the generated answer contains expected key information.
+- Answerability match: whether the system correctly decides if the question is answerable from the knowledge base.
+- Ticket creation match: whether the workflow creates a ticket only when expected.
+
+### Run evaluation
+
+```bash
+python -m scripts.run_rag_eval
+python -m scripts.run_workflow_eval
+python -m scripts.print_eval_summary
+```
+
+## Example results
+
+| Module       | Metric                | Score        |
+| ------------ | --------------------- | ------------ |
+| Basic RAG    | Source hit            | to be filled |
+| Basic RAG    | Keyword recall        | to be filled |
+| Advanced RAG | Source hit            | to be filled |
+| Advanced RAG | Answerability match   | to be filled |
+| Workflow     | Ticket creation match | to be filled |

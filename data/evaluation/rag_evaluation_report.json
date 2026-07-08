@@ -1,0 +1,1081 @@
+{
+  "created_at": "2026-07-08T11:46:08.927261",
+  "dataset_size": 8,
+  "basic_rag_summary": {
+    "keyword_recall": 1.0,
+    "source_hit": 1.0
+  },
+  "advanced_rag_summary": {
+    "answerability_match": 1.0,
+    "keyword_recall": 1.0,
+    "source_hit": 1.0
+  },
+  "basic_rag_results": [
+    {
+      "id": "finance_001",
+      "expected": {
+        "id": "finance_001",
+        "question": "差旅费报销需要哪些材料？",
+        "expected_answerable": true,
+        "expected_source_file": "reimbursement_policy.txt",
+        "expected_keywords": [
+          "出差审批单",
+          "交通票据",
+          "住宿发票",
+          "行程单",
+          "费用明细表"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "差旅费报销需要哪些材料？",
+        "answer": "根据知识库资料，差旅费报销需要提供以下材料：\n\n- 出差审批单\n- 交通票据\n- 住宿发票\n- 行程单\n- 费用明细表\n\n依据来自知识库资料《差旅费报销制度》。",
+        "sources": [
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "出差审批单",
+            "交通票据",
+            "住宿发票",
+            "行程单",
+            "费用明细表"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "finance_002",
+      "expected": {
+        "id": "finance_002",
+        "question": "报销出差的钱要交什么东西？",
+        "expected_answerable": true,
+        "expected_source_file": "reimbursement_policy.txt",
+        "expected_keywords": [
+          "出差审批单",
+          "交通票据",
+          "住宿发票",
+          "行程单",
+          "费用明细表"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "报销出差的钱要交什么东西？",
+        "answer": "根据知识库资料，报销出差费用需要提交以下材料：\n\n- 出差审批单\n- 交通票据\n- 住宿发票\n- 行程单\n- 费用明细表\n\n依据来自知识库《差旅费报销制度》。",
+        "sources": [
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "出差审批单",
+            "交通票据",
+            "住宿发票",
+            "行程单",
+            "费用明细表"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "hr_001",
+      "expected": {
+        "id": "hr_001",
+        "question": "试用期员工可以申请带薪年假吗？",
+        "expected_answerable": true,
+        "expected_source_file": "employee_handbook.md",
+        "expected_keywords": [
+          "试用期",
+          "不享受",
+          "带薪年假",
+          "审批"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "试用期员工可以申请带薪年假吗？",
+        "answer": "根据知识库资料，试用期员工原则上不享受带薪年假。  \n但如果有特殊情况，可以申请，并需由直属主管和人力资源部门审批。\n\n依据来自知识库《员工手册》“年假制度”部分。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "试用期",
+            "不享受",
+            "带薪年假",
+            "审批"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "it_001",
+      "expected": {
+        "id": "it_001",
+        "question": "VPN 首次使用需要做什么？",
+        "expected_answerable": true,
+        "expected_source_file": "it_support_faq.md",
+        "expected_keywords": [
+          "VPN",
+          "IT",
+          "权限申请"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "VPN 首次使用需要做什么？",
+        "answer": "VPN 首次使用前，需要先向 IT 部门提交权限申请。依据来自知识库资料《IT 支持常见问题》中的“VPN 使用”说明。",
+        "sources": [
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "VPN",
+            "IT",
+            "权限申请"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "it_002",
+      "expected": {
+        "id": "it_002",
+        "question": "员工忘记系统密码应该怎么办？",
+        "expected_answerable": true,
+        "expected_source_file": "it_support_faq.md",
+        "expected_keywords": [
+          "忘记密码",
+          "重置",
+          "验证码",
+          "IT 支持"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "员工忘记系统密码应该怎么办？",
+        "answer": "根据知识库资料，员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置；如果无法收到验证码，需要联系 IT 支持部门。",
+        "sources": [
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "忘记密码",
+            "重置",
+            "验证码",
+            "IT 支持"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_001",
+      "expected": {
+        "id": "unknown_001",
+        "question": "公司有没有免费午餐？",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "公司有没有免费午餐？",
+        "answer": "根据当前知识库资料，我无法确定公司是否提供免费午餐。\n\n依据来自知识库资料：当前仅提到试用期福利、年假制度以及差旅餐饮补贴，没有关于“免费午餐”的明确说明。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_002",
+      "expected": {
+        "id": "unknown_002",
+        "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": true
+      },
+      "result": {
+        "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+        "answer": "根据当前知识库资料，我无法确定公司是否提供免费午餐。  \n依据来自知识库资料：现有内容仅提到试用期福利、差旅餐饮补贴和 IT 支持事项，未说明“免费午餐”政策。\n\n工单草稿如下：\n\n**工单标题**：咨询公司是否提供免费午餐  \n**工单内容**：  \n您好，想确认一下公司目前是否为员工提供免费午餐。  \n如果有，烦请说明适用范围、用餐方式以及相关规则。  \n谢谢。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_003",
+      "expected": {
+        "id": "unknown_003",
+        "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": true
+      },
+      "result": {
+        "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+        "answer": "根据当前知识库资料，我无法确定公司是否提供住房补贴。现有知识库仅提到试用期享有“公司规定的福利”和差旅中的餐饮补贴，未明确住房补贴信息。\n\n如需记录给 HR 处理，请提供你的姓名、部门和联系方式。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0
+        }
+      }
+    }
+  ],
+  "advanced_rag_results": [
+    {
+      "id": "finance_001",
+      "expected": {
+        "id": "finance_001",
+        "question": "差旅费报销需要哪些材料？",
+        "expected_answerable": true,
+        "expected_source_file": "reimbursement_policy.txt",
+        "expected_keywords": [
+          "出差审批单",
+          "交通票据",
+          "住宿发票",
+          "行程单",
+          "费用明细表"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "差旅费报销需要哪些材料？",
+        "rewritten_query": "差旅费报销所需材料及报销附件要求有哪些？",
+        "answer": "根据知识库资料，差旅费报销需要提供以下材料：\n\n- 出差审批单\n- 交通票据\n- 住宿发票\n- 行程单\n- 费用明细表\n\n依据来自知识库资料《差旅费报销制度》。",
+        "answerable": true,
+        "answerability_reason": "上下文明确列出了差旅费报销所需材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。",
+        "sources": [
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          0.5600279569625854,
+          1.3407548666000366,
+          1.4665930271148682
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "出差审批单",
+            "交通票据",
+            "住宿发票",
+            "行程单",
+            "费用明细表"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "finance_002",
+      "expected": {
+        "id": "finance_002",
+        "question": "报销出差的钱要交什么东西？",
+        "expected_answerable": true,
+        "expected_source_file": "reimbursement_policy.txt",
+        "expected_keywords": [
+          "出差审批单",
+          "交通票据",
+          "住宿发票",
+          "行程单",
+          "费用明细表"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "报销出差的钱要交什么东西？",
+        "rewritten_query": "出差费用报销需要提交哪些材料和凭证？",
+        "answer": "根据知识库资料，差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。",
+        "answerable": true,
+        "answerability_reason": "上下文明确说明差旅费报销需提供出差审批单、交通票据、住宿发票、行程单以及费用明细表。",
+        "sources": [
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          0.572553277015686,
+          1.3092796802520752,
+          1.4418971538543701
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "出差审批单",
+            "交通票据",
+            "住宿发票",
+            "行程单",
+            "费用明细表"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "hr_001",
+      "expected": {
+        "id": "hr_001",
+        "question": "试用期员工可以申请带薪年假吗？",
+        "expected_answerable": true,
+        "expected_source_file": "employee_handbook.md",
+        "expected_keywords": [
+          "试用期",
+          "不享受",
+          "带薪年假",
+          "审批"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "试用期员工可以申请带薪年假吗？",
+        "rewritten_query": "试用期员工是否可以申请带薪年休假？",
+        "answer": "根据知识库资料，试用期员工原则上不享受带薪年假。  \n如有特殊情况，可以申请，但需要直属主管和人力资源部门审批。\n\n依据来自知识库《员工手册》“年假制度”部分。",
+        "answerable": true,
+        "answerability_reason": "上下文明确说明试用期员工原则上不享受带薪年假，特殊情况需直属主管和人力资源部门审批。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          0.669074535369873,
+          1.1357057094573975,
+          1.3751606941223145
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "试用期",
+            "不享受",
+            "带薪年假",
+            "审批"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "it_001",
+      "expected": {
+        "id": "it_001",
+        "question": "VPN 首次使用需要做什么？",
+        "expected_answerable": true,
+        "expected_source_file": "it_support_faq.md",
+        "expected_keywords": [
+          "VPN",
+          "IT",
+          "权限申请"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "VPN 首次使用需要做什么？",
+        "rewritten_query": "VPN 首次使用需要完成哪些初始化配置或开通步骤？",
+        "answer": "根据知识库资料，VPN 首次使用前，需要先向 IT 部门提交权限申请。",
+        "answerable": true,
+        "answerability_reason": "上下文明确说明：首次使用 VPN 前，需要向 IT 部门提交权限申请。",
+        "sources": [
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          1.0309762954711914,
+          1.3670653104782104,
+          1.496925950050354
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "VPN",
+            "IT",
+            "权限申请"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "it_002",
+      "expected": {
+        "id": "it_002",
+        "question": "员工忘记系统密码应该怎么办？",
+        "expected_answerable": true,
+        "expected_source_file": "it_support_faq.md",
+        "expected_keywords": [
+          "忘记密码",
+          "重置",
+          "验证码",
+          "IT 支持"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "员工忘记系统密码应该怎么办？",
+        "rewritten_query": "员工忘记系统登录密码后的处理流程是什么？",
+        "answer": "员工忘记系统密码时，可以先在登录页面点击“忘记密码”进行重置。  \n如果无法收到验证码，需要联系 IT 支持部门。\n\n依据来自知识库资料《IT 支持常见问题》。",
+        "answerable": true,
+        "answerability_reason": "上下文明确说明忘记系统密码时可在登录页面点击“忘记密码”重置；收不到验证码则联系IT支持部门。",
+        "sources": [
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          },
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          0.6444905996322632,
+          1.0679233074188232,
+          1.4004607200622559
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [
+            "忘记密码",
+            "重置",
+            "验证码",
+            "IT 支持"
+          ],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_001",
+      "expected": {
+        "id": "unknown_001",
+        "question": "公司有没有免费午餐？",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "公司有没有免费午餐？",
+        "rewritten_query": "公司是否提供免费午餐福利？",
+        "answer": "根据当前知识库资料，我无法确定。",
+        "answerable": false,
+        "answerability_reason": "上下文未提及公司是否提供免费午餐，只有试用期福利、差旅餐饮补贴和IT支持信息。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          1.0340403318405151,
+          1.0986801385879517,
+          1.2960572242736816
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_002",
+      "expected": {
+        "id": "unknown_002",
+        "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": true
+      },
+      "result": {
+        "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+        "rewritten_query": "公司是否提供免费午餐福利政策；如知识库无相关信息，生成关于免费午餐政策咨询的工单草稿",
+        "answer": "根据当前知识库资料，我无法确定。",
+        "answerable": false,
+        "answerability_reason": "上下文未提及公司是否提供免费午餐，也没有关于生成工单流程或模板的依据。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          1.0081650018692017,
+          1.070639729499817,
+          1.1156861782073975
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_003",
+      "expected": {
+        "id": "unknown_003",
+        "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": true
+      },
+      "result": {
+        "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+        "rewritten_query": "公司住房补贴政策/福利制度是否有相关规定，包含是否提供住房补贴及申请说明；如知识库无明确信息，记录并转交 HR 处理",
+        "answer": "根据当前知识库资料，我无法确定。",
+        "answerable": false,
+        "answerability_reason": "上下文未提及是否提供住房补贴，也没有记录或转交给HR的相关流程依据。",
+        "sources": [
+          {
+            "file_name": "employee_handbook.md",
+            "source": "data\\raw\\employee_handbook.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 0,
+            "chunk_size": 202,
+            "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+          },
+          {
+            "file_name": "reimbursement_policy.txt",
+            "source": "data\\raw\\reimbursement_policy.txt",
+            "file_type": ".txt",
+            "page_number": null,
+            "chunk_id": 2,
+            "chunk_size": 165,
+            "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+          },
+          {
+            "file_name": "it_support_faq.md",
+            "source": "data\\raw\\it_support_faq.md",
+            "file_type": ".md",
+            "page_number": null,
+            "chunk_id": 1,
+            "chunk_size": 202,
+            "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+          }
+        ],
+        "retrieved_count": 3,
+        "scores_raw": [
+          0.8479935526847839,
+          1.0102896690368652,
+          1.0436482429504395
+        ],
+        "keyword_recall": {
+          "score": 1.0,
+          "matched_keywords": [],
+          "missing_keywords": []
+        },
+        "source_hit": true,
+        "answerability_match": true,
+        "scores": {
+          "keyword_recall": 1.0,
+          "source_hit": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    }
+  ]
+}

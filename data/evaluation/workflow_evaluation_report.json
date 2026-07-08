@@ -1,0 +1,312 @@
+{
+  "created_at": "2026-07-08T11:54:54.400830",
+  "dataset_size": 8,
+  "workflow_summary": {
+    "answerability_match": 1.0,
+    "ticket_creation_match": 1.0
+  },
+  "workflow_results": [
+    {
+      "id": "finance_001",
+      "expected": {
+        "id": "finance_001",
+        "question": "差旅费报销需要哪些材料？",
+        "expected_answerable": true,
+        "expected_source_file": "reimbursement_policy.txt",
+        "expected_keywords": [
+          "出差审批单",
+          "交通票据",
+          "住宿发票",
+          "行程单",
+          "费用明细表"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "差旅费报销需要哪些材料？",
+        "final_message": "根据知识库资料，差旅费报销需要提供以下材料：\n\n- 出差审批单\n- 交通票据\n- 住宿发票\n- 行程单\n- 费用明细表\n\n依据来自知识库资料《差旅费报销制度》。",
+        "answerable": true,
+        "requires_human_review": false,
+        "ticket_id": null,
+        "ticket": null,
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "finance_002",
+      "expected": {
+        "id": "finance_002",
+        "question": "报销出差的钱要交什么东西？",
+        "expected_answerable": true,
+        "expected_source_file": "reimbursement_policy.txt",
+        "expected_keywords": [
+          "出差审批单",
+          "交通票据",
+          "住宿发票",
+          "行程单",
+          "费用明细表"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "报销出差的钱要交什么东西？",
+        "final_message": "根据知识库资料，差旅费报销需要提供以下材料：\n\n- 出差审批单\n- 交通票据\n- 住宿发票\n- 行程单\n- 费用明细表\n\n依据来自知识库《差旅费报销制度》。",
+        "answerable": true,
+        "requires_human_review": false,
+        "ticket_id": null,
+        "ticket": null,
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "hr_001",
+      "expected": {
+        "id": "hr_001",
+        "question": "试用期员工可以申请带薪年假吗？",
+        "expected_answerable": true,
+        "expected_source_file": "employee_handbook.md",
+        "expected_keywords": [
+          "试用期",
+          "不享受",
+          "带薪年假",
+          "审批"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "试用期员工可以申请带薪年假吗？",
+        "final_message": "根据知识库资料，试用期员工原则上不享受带薪年假。  \n如有特殊情况，可以申请，但需要直属主管和人力资源部门审批。\n\n依据来自知识库《员工手册》“年假制度”部分。",
+        "answerable": true,
+        "requires_human_review": false,
+        "ticket_id": null,
+        "ticket": null,
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "it_001",
+      "expected": {
+        "id": "it_001",
+        "question": "VPN 首次使用需要做什么？",
+        "expected_answerable": true,
+        "expected_source_file": "it_support_faq.md",
+        "expected_keywords": [
+          "VPN",
+          "IT",
+          "权限申请"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "VPN 首次使用需要做什么？",
+        "final_message": "VPN 首次使用前，需要先向 IT 部门提交权限申请。依据来自知识库资料《IT 支持常见问题》中的“VPN 使用”说明。",
+        "answerable": true,
+        "requires_human_review": false,
+        "ticket_id": null,
+        "ticket": null,
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "it_002",
+      "expected": {
+        "id": "it_002",
+        "question": "员工忘记系统密码应该怎么办？",
+        "expected_answerable": true,
+        "expected_source_file": "it_support_faq.md",
+        "expected_keywords": [
+          "忘记密码",
+          "重置",
+          "验证码",
+          "IT 支持"
+        ],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "员工忘记系统密码应该怎么办？",
+        "final_message": "根据知识库资料，员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置；如果无法收到验证码，需要联系 IT 支持部门。",
+        "answerable": true,
+        "requires_human_review": false,
+        "ticket_id": null,
+        "ticket": null,
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_001",
+      "expected": {
+        "id": "unknown_001",
+        "question": "公司有没有免费午餐？",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": false
+      },
+      "result": {
+        "question": "公司有没有免费午餐？",
+        "final_message": "根据当前知识库资料，我无法确定。如果你希望继续处理这个问题，可以让我生成一个工单草稿。",
+        "answerable": false,
+        "requires_human_review": false,
+        "ticket_id": null,
+        "ticket": null,
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_002",
+      "expected": {
+        "id": "unknown_002",
+        "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": true
+      },
+      "result": {
+        "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+        "final_message": "知识库资料不足，已生成工单草稿，当前状态为 pending_review。请人工审核后决定是否提交。工单 ID：17。",
+        "answerable": false,
+        "requires_human_review": true,
+        "ticket_id": 17,
+        "ticket": {
+          "id": 17,
+          "user_question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+          "category": "general",
+          "priority": "medium",
+          "summary": "知识库暂无法回答，需人工处理：公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+          "evidence": [
+            {
+              "file_name": "employee_handbook.md",
+              "source": "data\\raw\\employee_handbook.md",
+              "file_type": ".md",
+              "page_number": null,
+              "chunk_id": 0,
+              "chunk_size": 202,
+              "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+            },
+            {
+              "file_name": "reimbursement_policy.txt",
+              "source": "data\\raw\\reimbursement_policy.txt",
+              "file_type": ".txt",
+              "page_number": null,
+              "chunk_id": 2,
+              "chunk_size": 165,
+              "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+            },
+            {
+              "file_name": "it_support_faq.md",
+              "source": "data\\raw\\it_support_faq.md",
+              "file_type": ".md",
+              "page_number": null,
+              "chunk_id": 1,
+              "chunk_size": 202,
+              "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+            }
+          ],
+          "status": "pending_review",
+          "created_at": "2026-07-08T03:54:49.086887",
+          "updated_at": "2026-07-08T03:54:49.086887"
+        },
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    },
+    {
+      "id": "unknown_003",
+      "expected": {
+        "id": "unknown_003",
+        "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+        "expected_answerable": false,
+        "expected_source_file": null,
+        "expected_keywords": [],
+        "should_create_ticket": true
+      },
+      "result": {
+        "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+        "final_message": "知识库资料不足，已生成工单草稿，当前状态为 pending_review。请人工审核后决定是否提交。工单 ID：18。",
+        "answerable": false,
+        "requires_human_review": true,
+        "ticket_id": 18,
+        "ticket": {
+          "id": 18,
+          "user_question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+          "category": "general",
+          "priority": "medium",
+          "summary": "知识库暂无法回答，需人工处理：公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+          "evidence": [
+            {
+              "file_name": "employee_handbook.md",
+              "source": "data\\raw\\employee_handbook.md",
+              "file_type": ".md",
+              "page_number": null,
+              "chunk_id": 0,
+              "chunk_size": 202,
+              "preview": "# 员工手册\n\n## 入职管理\n\n新员工入职时，需要提交身份证明、学历证明、银行卡信息以及紧急联系人信息。人力资源部门会在入职当天完成系统账号开通。\n\n## 试用期管理\n\n员工试用期通常为三个月。试用期内，员工享有基本工资、法定节假日和公司"
+            },
+            {
+              "file_name": "reimbursement_policy.txt",
+              "source": "data\\raw\\reimbursement_policy.txt",
+              "file_type": ".txt",
+              "page_number": null,
+              "chunk_id": 2,
+              "chunk_size": 165,
+              "preview": "差旅费报销制度\n\n员工因公出差前，应提前提交出差申请，并获得直属主管审批。\n\n差旅费报销需要提供以下材料：出差审批单、交通票据、住宿发票、行程单以及费用明细表。\n\n餐饮补贴按照公司差旅标准执行。超出标准的部分，如无特殊审批，原则上不予报销。"
+            },
+            {
+              "file_name": "it_support_faq.md",
+              "source": "data\\raw\\it_support_faq.md",
+              "file_type": ".md",
+              "page_number": null,
+              "chunk_id": 1,
+              "chunk_size": 202,
+              "preview": "# IT 支持常见问题\n\n## 忘记密码\n\n员工忘记系统密码时，可以在登录页面点击“忘记密码”进行重置。如果无法收到验证码，需要联系 IT 支持部门。\n\n## 账号无法登录\n\n如果员工账号无法登录，应先确认网络连接是否正常，再检查账号是否被"
+            }
+          ],
+          "status": "pending_review",
+          "created_at": "2026-07-08T03:54:54.388019",
+          "updated_at": "2026-07-08T03:54:54.388019"
+        },
+        "ticket_creation_match": true,
+        "answerability_match": true,
+        "scores": {
+          "ticket_creation_match": 1.0,
+          "answerability_match": 1.0
+        }
+      }
+    }
+  ]
+}

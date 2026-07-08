@@ -1,0 +1,66 @@
+[
+  {
+    "id": "finance_001",
+    "question": "差旅费报销需要哪些材料？",
+    "expected_answerable": true,
+    "expected_source_file": "reimbursement_policy.txt",
+    "expected_keywords": ["出差审批单", "交通票据", "住宿发票", "行程单", "费用明细表"],
+    "should_create_ticket": false
+  },
+  {
+    "id": "finance_002",
+    "question": "报销出差的钱要交什么东西？",
+    "expected_answerable": true,
+    "expected_source_file": "reimbursement_policy.txt",
+    "expected_keywords": ["出差审批单", "交通票据", "住宿发票", "行程单", "费用明细表"],
+    "should_create_ticket": false
+  },
+  {
+    "id": "hr_001",
+    "question": "试用期员工可以申请带薪年假吗？",
+    "expected_answerable": true,
+    "expected_source_file": "employee_handbook.md",
+    "expected_keywords": ["试用期", "不享受", "带薪年假", "审批"],
+    "should_create_ticket": false
+  },
+  {
+    "id": "it_001",
+    "question": "VPN 首次使用需要做什么？",
+    "expected_answerable": true,
+    "expected_source_file": "it_support_faq.md",
+    "expected_keywords": ["VPN", "IT", "权限申请"],
+    "should_create_ticket": false
+  },
+  {
+    "id": "it_002",
+    "question": "员工忘记系统密码应该怎么办？",
+    "expected_answerable": true,
+    "expected_source_file": "it_support_faq.md",
+    "expected_keywords": ["忘记密码", "重置", "验证码", "IT 支持"],
+    "should_create_ticket": false
+  },
+  {
+    "id": "unknown_001",
+    "question": "公司有没有免费午餐？",
+    "expected_answerable": false,
+    "expected_source_file": null,
+    "expected_keywords": [],
+    "should_create_ticket": false
+  },
+  {
+    "id": "unknown_002",
+    "question": "公司有没有免费午餐？如果知识库不知道，帮我生成一个工单草稿。",
+    "expected_answerable": false,
+    "expected_source_file": null,
+    "expected_keywords": [],
+    "should_create_ticket": true
+  },
+  {
+    "id": "unknown_003",
+    "question": "公司是否提供住房补贴？如果不清楚，请帮我记录给 HR 处理。",
+    "expected_answerable": false,
+    "expected_source_file": null,
+    "expected_keywords": [],
+    "should_create_ticket": true
+  }
+]

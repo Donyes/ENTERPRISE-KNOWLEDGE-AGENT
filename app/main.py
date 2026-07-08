@@ -15,7 +15,10 @@ from app.tickets.database import create_tables
 from app.tickets.router import router as tickets_router
 from app.agent.router import router as agent_router
 from app.workflow.router import router as workflow_router
+from app.observability.langsmith import setup_langsmith_tracing
 
+
+setup_langsmith_tracing()
 
 app = FastAPI(
     title=settings.app_name,
