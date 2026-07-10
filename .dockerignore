@@ -1,0 +1,13 @@
+.venv
+__pycache__
+*.pyc
+.git
+.gitignore
+
+.env
+.DS_Store
+.vscode
+
+data/vectorstore/chroma
+data/tickets.db
+data/evaluation/*.json

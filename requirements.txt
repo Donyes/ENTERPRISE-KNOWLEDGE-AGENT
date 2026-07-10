@@ -20,3 +20,5 @@ markdown
 
 sqlalchemy
 streamlit
+
+requests
