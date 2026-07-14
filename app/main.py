@@ -74,7 +74,7 @@ def advanced_rag_chat(request: AdvancedRAGChatRequest):
         question=request.question,
         fetch_k=request.fetch_k,
         final_k=request.final_k,
-        max_distance=request.max_distance,
+        min_score=request.min_score,
         use_query_rewrite=request.use_query_rewrite,
     )
 

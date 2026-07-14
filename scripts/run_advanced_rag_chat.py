@@ -6,8 +6,8 @@ def run_case(question: str):
         question=question,
         fetch_k=8,
         final_k=4,
-        # max_distance=None,
-        max_distance=0.8,
+        # min_score=None,
+        min_score=0.8,
         use_query_rewrite=True,
     )
 

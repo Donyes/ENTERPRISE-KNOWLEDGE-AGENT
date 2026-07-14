@@ -25,8 +25,14 @@ class Settings(BaseSettings):
     chroma_persist_directory: str = "data/vectorstore/chroma"
     chroma_collection_name: str = "enterprise_knowledge_base"
     
-    ticket_database_url: str = "sqlite:///data/tickets.db"    
-
+    # ticket_database_url: str = "sqlite:///data/tickets.db"    
+    ticket_database_url: str = (
+        "postgresql+psycopg://agent_user:agent_password@localhost:5432/enterprise_agent"
+    )
+    
+    qdrant_url: str = "http://localhost:6333"
+    qdrant_api_key: str | None = None
+    qdrant_collection_name: str = "enterprise_knowledge_base"
 
     # LangSmith
     langsmith_tracing: bool = False

@@ -9,12 +9,12 @@ def retrieve_documents_with_score_filter(
     query: str,
     fetch_k: int = 8,
     final_k: int = 4,
-    max_distance: float | None = None,
+    min_score: float | None = None,
 ) -> Dict[str, Any]:
     """
-    Retrieve documents with scores and optionally filter by max distance.
+    Retrieve documents with Qdrant similarity scores.
 
-    For Chroma distance scores, lower is usually more similar.
+    For Qdrant similarity scores, higher usually means more similar.
     """
     scored_results = search_similar_documents_with_scores(
         query=query,
@@ -35,11 +35,11 @@ def retrieve_documents_with_score_filter(
             }
         )
 
-    if max_distance is not None:
+    if min_score is not None:
         scored_results = [
             (document, score)
             for document, score in scored_results
-            if score <= max_distance
+            if score >= min_score
         ]
 
     selected_results = scored_results[:final_k]

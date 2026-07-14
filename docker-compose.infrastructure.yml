@@ -25,41 +25,6 @@ services:
     volumes:
       - qdrant_storage:/qdrant/storage
 
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile.api
-    container_name: enterprise-knowledge-api
-    env_file:
-      - .env
-    environment:
-      TICKET_DATABASE_URL: postgresql+psycopg://agent_user:agent_password@postgres:5432/enterprise_agent
-      QDRANT_URL: http://qdrant:6333
-      QDRANT_COLLECTION_NAME: enterprise_knowledge_base
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./data:/app/data
-    depends_on:
-      postgres:
-        condition: service_healthy
-      qdrant:
-        condition: service_started
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    container_name: enterprise-knowledge-frontend
-    environment:
-      API_BASE_URL: http://api:8000
-    ports:
-      - "8501:8501"
-    volumes:
-      - ./data:/app/data
-    depends_on:
-      - api
-
   adminer:
     image: adminer:latest
     container_name: enterprise-agent-adminer

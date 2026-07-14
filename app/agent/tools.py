@@ -82,7 +82,7 @@ def answer_with_knowledge_base(question: str) -> dict[str, Any]:
         question=question,
         fetch_k=8,
         final_k=4,
-        max_distance=None,
+        min_score=None,
         use_query_rewrite=True,
     )
 

@@ -56,7 +56,7 @@ def run_rag_node(state: TicketWorkflowState) -> TicketWorkflowState:
         question=user_input,
         fetch_k=8,
         final_k=4,
-        max_distance=None,
+        min_score=None,
         use_query_rewrite=True,
     )
 

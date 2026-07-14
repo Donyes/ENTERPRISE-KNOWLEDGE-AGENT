@@ -26,7 +26,7 @@ def compare_one_question(question: str):
         question=question,
         fetch_k=8,
         final_k=4,
-        max_distance=None,
+        min_score=None,
         use_query_rewrite=True,
     )
     print("Rewritten Query:")

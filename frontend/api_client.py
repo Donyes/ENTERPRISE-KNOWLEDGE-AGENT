@@ -47,7 +47,7 @@ def chat_advanced_rag(
             "question": question,
             "fetch_k": fetch_k,
             "final_k": final_k,
-            "max_distance": None,
+            "min_score": None,
             "use_query_rewrite": use_query_rewrite,
         },
     )

@@ -1,16 +1,19 @@
 import json
-import shutil
+import uuid
 from pathlib import Path
 from typing import List, Tuple
 
-from langchain_chroma import Chroma
 from langchain_core.documents import Document
+from langchain_qdrant import QdrantVectorStore
+from qdrant_client import QdrantClient
 
 from app.config import settings
 from app.rag.embeddings import get_embedding_model
 
 
-def load_chunks_from_jsonl(file_path: str = "data/processed/chunks.jsonl") -> List[Document]:
+def load_chunks_from_jsonl(
+    file_path: str = "data/processed/chunks.jsonl",
+) -> List[Document]:
     """
     Load processed chunks from a JSONL file and convert them back to LangChain Documents.
     """
@@ -43,86 +46,97 @@ def load_chunks_from_jsonl(file_path: str = "data/processed/chunks.jsonl") -> Li
 
 def make_document_id(document: Document, fallback_index: int) -> str:
     """
-    Create a stable id for each document chunk.
+    Create a stable UUID for each document chunk.
+
+    Qdrant point IDs must be unsigned integers or UUID strings.
+    We create a deterministic UUID from source + chunk_id so the same chunk
+    gets the same ID every time the vector store is rebuilt.
     """
     metadata = document.metadata
 
     source = metadata.get("source", "unknown_source")
     chunk_id = metadata.get("chunk_id", fallback_index)
 
-    return f"{source}::chunk_{chunk_id}"
+    raw_id = f"{source}::chunk_{chunk_id}"
+
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, raw_id))
 
 
-def reset_vectorstore_directory() -> None:
+def get_qdrant_client() -> QdrantClient:
     """
-    Remove the existing Chroma persistence directory.
+    Create a Qdrant client.
+    """
+    if settings.qdrant_api_key:
+        return QdrantClient(
+            url=settings.qdrant_url,
+            api_key=settings.qdrant_api_key,
+        )
+
+    return QdrantClient(
+        url=settings.qdrant_url,
+    )
+
+
+def reset_vectorstore_collection() -> None:
+    """
+    Delete the existing Qdrant collection.
 
     This avoids duplicated chunks when rebuilding the vector store during development.
     """
-    persist_path = Path(settings.chroma_persist_directory)
+    client = get_qdrant_client()
 
-    if persist_path.exists():
-        shutil.rmtree(persist_path)
-
-
-def create_empty_vectorstore() -> Chroma:
-    """
-    Create a Chroma vector store instance.
-    """
-    embedding_model = get_embedding_model()
-
-    vectorstore = Chroma(
-        collection_name=settings.chroma_collection_name,
-        embedding_function=embedding_model,
-        persist_directory=settings.chroma_persist_directory,
-    )
-
-    return vectorstore
+    if client.collection_exists(settings.qdrant_collection_name):
+        client.delete_collection(settings.qdrant_collection_name)
 
 
 def build_vectorstore_from_chunks(
     chunk_file_path: str = "data/processed/chunks.jsonl",
     reset: bool = True,
-) -> Chroma:
+) -> QdrantVectorStore:
     """
-    Build a Chroma vector store from processed document chunks.
+    Build a Qdrant vector store from processed document chunks.
     """
     if reset:
-        reset_vectorstore_directory()
+        reset_vectorstore_collection()
 
     documents = load_chunks_from_jsonl(chunk_file_path)
 
     if not documents:
         raise ValueError("No documents found in chunk file.")
 
-    vectorstore = create_empty_vectorstore()
+    embedding_model = get_embedding_model()
 
     ids = [
         make_document_id(document, index)
         for index, document in enumerate(documents)
     ]
 
-    vectorstore.add_documents(
-        documents=documents,
+    vectorstore = QdrantVectorStore.from_documents(
+        documents,
+        embedding_model,
+        url=settings.qdrant_url,
+        api_key=settings.qdrant_api_key or None,
+        collection_name=settings.qdrant_collection_name,
         ids=ids,
     )
 
     return vectorstore
 
 
-def load_vectorstore() -> Chroma:
+def load_vectorstore() -> QdrantVectorStore:
     """
-    Load an existing Chroma vector store from disk.
+    Load an existing Qdrant vector store collection.
     """
-    persist_path = Path(settings.chroma_persist_directory)
+    embedding_model = get_embedding_model()
 
-    if not persist_path.exists():
-        raise FileNotFoundError(
-            f"Vector store not found at {settings.chroma_persist_directory}. "
-            "Please run: python -m scripts.run_build_vectorstore first."
-        )
+    vectorstore = QdrantVectorStore.from_existing_collection(
+        embedding=embedding_model,
+        collection_name=settings.qdrant_collection_name,
+        url=settings.qdrant_url,
+        api_key=settings.qdrant_api_key or None,
+    )
 
-    return create_empty_vectorstore()
+    return vectorstore
 
 
 def search_similar_documents(
@@ -130,7 +144,7 @@ def search_similar_documents(
     k: int = 4,
 ) -> List[Document]:
     """
-    Search similar documents from the vector store.
+    Search similar documents from Qdrant.
     """
     vectorstore = load_vectorstore()
 
@@ -149,8 +163,8 @@ def search_similar_documents_with_scores(
     """
     Search similar documents and return documents with similarity scores.
 
-    For Chroma, the returned score is usually a distance value.
-    Lower distance often means more similar.
+    For Qdrant, scores are similarity scores in LangChain's Qdrant integration.
+    Higher score usually means more similar.
     """
     vectorstore = load_vectorstore()
 

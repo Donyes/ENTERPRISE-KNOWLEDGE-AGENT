@@ -18,6 +18,10 @@ python-docx
 unstructured
 markdown
 
+psycopg[binary]
+langchain-qdrant
+qdrant-client
+
 sqlalchemy
 streamlit
 

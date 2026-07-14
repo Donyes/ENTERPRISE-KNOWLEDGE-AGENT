@@ -177,7 +177,7 @@ def create_ticket_draft_from_rag(
         question=question,
         fetch_k=8,
         final_k=4,
-        max_distance=None,
+        min_score=None,
         use_query_rewrite=True,
     )
 

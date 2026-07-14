@@ -91,7 +91,7 @@ def ask_advanced_rag(
     question: str,
     fetch_k: int = 8,
     final_k: int = 4,
-    max_distance: float | None = None,
+    min_score: float | None = None,
     use_query_rewrite: bool = True,
 ) -> Dict[str, Any]:
     """
@@ -111,7 +111,7 @@ def ask_advanced_rag(
         query=rewritten_query,
         fetch_k=fetch_k,
         final_k=final_k,
-        max_distance=max_distance,
+        min_score=min_score,
     )
 
     documents = retrieval_result["documents"]

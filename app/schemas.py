@@ -54,9 +54,9 @@ class AdvancedRAGChatRequest(BaseModel):
         le=10,
         description="Number of chunks to pass to the answer model",
     )
-    max_distance: float | None = Field(
+    min_score: float | None = Field(
         default=None,
-        description="Optional max distance threshold for filtering Chroma results",
+        description="Optional minimum Qdrant similarity score for filtering results",
     )
     use_query_rewrite: bool = Field(
         default=True,

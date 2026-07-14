@@ -16,7 +16,9 @@ class Base(DeclarativeBase):
 
 def _ensure_sqlite_parent_directory() -> None:
     """
-    Ensure the parent directory exists when using a local SQLite database.
+    Keep SQLite compatibility for local fallback.
+
+    In PostgreSQL mode, this function does nothing.
     """
     database_url = settings.ticket_database_url
 
@@ -40,6 +42,7 @@ if settings.ticket_database_url.startswith("sqlite"):
 engine = create_engine(
     settings.ticket_database_url,
     connect_args=connect_args,
+    pool_pre_ping=True,
 )
 
 SessionLocal = sessionmaker(
@@ -52,6 +55,9 @@ SessionLocal = sessionmaker(
 def create_tables() -> None:
     """
     Create database tables.
+
+    For learning and local development, this is acceptable.
+    For real production, use Alembic migrations instead.
     """
     Base.metadata.create_all(bind=engine)
 
