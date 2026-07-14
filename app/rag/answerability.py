@@ -67,3 +67,27 @@ def judge_answerability(question: str, context: str) -> Dict[str, Any]:
         "reason": reason,
         "raw_result": raw_result,
     }
+
+async def judge_answerability_async(question: str, context: str) -> Dict[str, Any]:
+    """
+    Async version of answerability judgment.
+    """
+    chain = build_answerability_chain()
+
+    raw_result = await chain.ainvoke(
+        {
+            "question": question,
+            "context": context,
+        }
+    )
+
+    parsed = _safe_parse_json(raw_result)
+
+    answerable = bool(parsed.get("answerable", False))
+    reason = str(parsed.get("reason", "")).strip()
+
+    return {
+        "answerable": answerable,
+        "reason": reason,
+        "raw_result": raw_result,
+    }

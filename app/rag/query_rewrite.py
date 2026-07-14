@@ -36,3 +36,24 @@ def rewrite_query(question: str) -> str:
         return question
 
     return rewritten_query
+
+async def rewrite_query_async(question: str) -> str:
+    """
+    Async version of query rewrite.
+
+    Used by async streaming RAG pipeline.
+    """
+    chain = build_query_rewrite_chain()
+
+    rewritten_query = await chain.ainvoke(
+        {
+            "question": question,
+        }
+    )
+
+    rewritten_query = rewritten_query.strip()
+
+    if not rewritten_query:
+        return question
+
+    return rewritten_query

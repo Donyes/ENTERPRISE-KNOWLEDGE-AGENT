@@ -7,7 +7,11 @@ from app.schemas import (
     RAGChatResponse,
     AdvancedRAGChatRequest,
     AdvancedRAGChatResponse,
+    AdvancedRAGStreamRequest,
 )
+
+from fastapi.responses import StreamingResponse
+from app.rag.streaming import stream_advanced_rag_events
 
 from app.rag.chains import ask_basic_chat, ask_rag, ask_advanced_rag
 
@@ -87,4 +91,27 @@ def advanced_rag_chat(request: AdvancedRAGChatRequest):
         answerability_reason=result["answerability_reason"],
         scores=result["scores"],
         debug_results=result["debug_results"],
+    )
+
+
+@app.post("/chat/rag/advanced/stream")
+async def advanced_rag_chat_stream(request: AdvancedRAGStreamRequest):
+    """
+    Streaming advanced RAG endpoint using Server-Sent Events.
+    """
+    event_generator = stream_advanced_rag_events(
+        question=request.question,
+        fetch_k=request.fetch_k,
+        final_k=request.final_k,
+        min_score=request.min_score,
+        use_query_rewrite=request.use_query_rewrite,
+    )
+
+    return StreamingResponse(
+        event_generator,
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+        },
     )

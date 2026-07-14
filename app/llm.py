@@ -19,3 +19,20 @@ def get_chat_model(temperature: float = 0.0) -> ChatOpenAI:
         base_url=settings.openai_base_url or None,
         temperature=temperature,
     )
+
+def get_streaming_chat_model(temperature: float = 0.0) -> ChatOpenAI:
+    """
+    Create a streaming chat model.
+
+    Used by RAG streaming endpoints.
+    """
+    if not settings.openai_api_key:
+        raise ValueError("OPENAI_API_KEY is missing. Please set it in your .env file.")
+
+    return ChatOpenAI(
+        model=settings.openai_model,
+        api_key=settings.openai_api_key,
+        base_url=settings.openai_base_url or None,
+        temperature=temperature,
+        streaming=True,
+    )

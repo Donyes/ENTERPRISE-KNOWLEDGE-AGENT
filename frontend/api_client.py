@@ -1,4 +1,6 @@
+import json
 import os
+from collections.abc import Generator
 from typing import Any
 
 import requests
@@ -123,3 +125,56 @@ def create_ticket(
             "evidence": [],
         },
     )
+
+def stream_advanced_rag(
+    question: str,
+    fetch_k: int = 8,
+    final_k: int = 4,
+    min_score: float | None = None,
+    use_query_rewrite: bool = True,
+) -> Generator[dict[str, Any], None, None]:
+    """
+    Stream advanced RAG events from backend SSE endpoint.
+
+    Yields dicts like:
+    {
+        "event": "token",
+        "data": {"text": "..."}
+    }
+    """
+    url = f"{API_BASE_URL}/chat/rag/advanced/stream"
+
+    payload = {
+        "question": question,
+        "fetch_k": fetch_k,
+        "final_k": final_k,
+        "min_score": min_score,
+        "use_query_rewrite": use_query_rewrite,
+    }
+
+    current_event = None
+
+    with requests.post(
+        url,
+        json=payload,
+        stream=True,
+        timeout=120,
+    ) as response:
+        response.raise_for_status()
+
+        for raw_line in response.iter_lines(decode_unicode=True):
+            if not raw_line:
+                continue
+
+            if raw_line.startswith("event: "):
+                current_event = raw_line.replace("event: ", "", 1)
+                continue
+
+            if raw_line.startswith("data: "):
+                data_text = raw_line.replace("data: ", "", 1)
+                data = json.loads(data_text)
+
+                yield {
+                    "event": current_event,
+                    "data": data,
+                }

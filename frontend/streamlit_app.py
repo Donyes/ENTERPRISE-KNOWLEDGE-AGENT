@@ -10,6 +10,7 @@ from frontend.api_client import (
     list_tickets,
     review_workflow_ticket,
     run_workflow,
+    stream_advanced_rag,
 )
 
 
@@ -69,32 +70,94 @@ def page_advanced_rag():
     with col3:
         use_query_rewrite = st.checkbox("启用 Query Rewrite", value=True)
 
+    mode = st.radio(
+        "响应模式",
+        options=["流式输出", "普通 JSON"],
+        horizontal=True,
+    )
+
     if st.button("运行增强版 RAG"):
-        with st.spinner("正在检索知识库并生成答案..."):
-            result = chat_advanced_rag(
+        if mode == "普通 JSON":
+            with st.spinner("正在检索知识库并生成答案..."):
+                result = chat_advanced_rag(
+                    question=question,
+                    fetch_k=fetch_k,
+                    final_k=final_k,
+                    use_query_rewrite=use_query_rewrite,
+                )
+
+            st.subheader("回答")
+            st.write(result.get("answer"))
+
+            st.subheader("是否可回答")
+            st.write(result.get("answerable"))
+
+            st.subheader("改写后的查询")
+            st.code(result.get("rewritten_query", ""))
+
+            st.subheader("判断原因")
+            st.write(result.get("answerability_reason"))
+
+            st.subheader("引用来源")
+            st.dataframe(result.get("sources", []))
+
+            with st.expander("查看完整 JSON"):
+                show_json(result)
+
+        else:
+            st.subheader("运行状态")
+            status_box = st.empty()
+
+            st.subheader("回答")
+            answer_box = st.empty()
+
+            st.subheader("元信息")
+            meta_box = st.empty()
+
+            final_answer = ""
+            final_result = {}
+
+            for item in stream_advanced_rag(
                 question=question,
                 fetch_k=fetch_k,
                 final_k=final_k,
                 use_query_rewrite=use_query_rewrite,
-            )
+            ):
+                event = item["event"]
+                data = item["data"]
 
-        st.subheader("回答")
-        st.write(result.get("answer"))
+                if event == "status":
+                    status_box.info(data.get("message", ""))
 
-        st.subheader("是否可回答")
-        st.write(result.get("answerable"))
+                elif event == "rewritten_query":
+                    meta_box.write("改写后的查询：")
+                    meta_box.code(data.get("rewritten_query", ""))
 
-        st.subheader("改写后的查询")
-        st.code(result.get("rewritten_query", ""))
+                elif event == "retrieval":
+                    with st.expander("检索结果 Debug", expanded=False):
+                        st.write(f"检索数量：{data.get('retrieved_count')}")
+                        st.write("分数：")
+                        st.write(data.get("scores"))
+                        st.write("debug_results：")
+                        st.json(data.get("debug_results"))
 
-        st.subheader("判断原因")
-        st.write(result.get("answerability_reason"))
+                elif event == "answerability":
+                    st.write("Answerability：", data)
 
-        st.subheader("引用来源")
-        st.dataframe(result.get("sources", []))
+                elif event == "token":
+                    final_answer += data.get("text", "")
+                    answer_box.markdown(final_answer)
 
-        with st.expander("查看完整 JSON"):
-            show_json(result)
+                elif event == "sources":
+                    st.subheader("引用来源")
+                    st.dataframe(data.get("sources", []))
+
+                elif event == "done":
+                    final_result = data
+                    status_box.success("生成完成")
+
+            with st.expander("查看最终结果 JSON"):
+                st.json(final_result)
 
 
 def page_agent():

@@ -73,3 +73,32 @@ class AdvancedRAGChatResponse(BaseModel):
     answerability_reason: str
     scores: List[float]
     debug_results: List[Dict[str, Any]]
+
+    
+class AdvancedRAGStreamRequest(BaseModel):
+    question: str = Field(
+        ...,
+        min_length=1,
+        description="User question for streaming advanced RAG",
+        examples=["差旅费报销需要哪些材料？"],
+    )
+    fetch_k: int = Field(
+        default=8,
+        ge=1,
+        le=30,
+        description="Number of chunks to retrieve before filtering",
+    )
+    final_k: int = Field(
+        default=4,
+        ge=1,
+        le=10,
+        description="Number of chunks to pass to the answer model",
+    )
+    min_score: float | None = Field(
+        default=None,
+        description="Optional minimum similarity score for filtering results",
+    )
+    use_query_rewrite: bool = Field(
+        default=True,
+        description="Whether to rewrite the query before retrieval",
+    )
